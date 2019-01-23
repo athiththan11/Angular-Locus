@@ -2,7 +2,16 @@
   <div class="h-100 row">
     <div class="col p-0">
       <agm-map class="h-100" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        <agm-marker
+          *ngFor="let s of sites; let i = index"
+          (markerClick)="displayBottomSheet(s)"
+          [latitude]="s.lat"
+          [longitude]="s.lng"
+        >
+        </agm-marker>
+
+        <!-- uncomment this to mark the user's real time location -->
+        <!-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker> -->
       </agm-map>
     </div>
   </div>

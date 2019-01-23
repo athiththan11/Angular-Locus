@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 // Site model
 import { Site } from '../models/site.model';
-import { LocationService } from './location.service';
 
 // Angular Material Bottom Sheet component
 import { MatBottomSheet } from '@angular/material';
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
+
+// Location Service
+import { LocationService } from './location.service';
 
 @Component({
   selector: 'app-root',
@@ -18,13 +20,25 @@ export class AppComponent implements OnInit {
 
   lat: number;
   lng: number;
-  zoom = 16;
+  zoom = 3;
+
+  // sites
+  sites: Site[];
 
   constructor(private locationService: LocationService, private bottomSheet: MatBottomSheet) {}
 
   ngOnInit(): void {
     // sets the current position of user
     this.setCurrentPosition();
+
+    // load sites from firestore using location service
+    this.locationService.getSites().subscribe((data) => {
+      this.sites = data.map((s) => {
+        return {
+          ...s.payload.doc.data()
+        } as Site;
+      });
+    });
   }
 
   /**
@@ -44,7 +58,7 @@ export class AppComponent implements OnInit {
   /**
    * displays angular bottom sheet
    */
-  public displayBottomSheet() {
-    this.bottomSheet.open(BottomSheetComponent, { data: 'pass data here' });
+  public displayBottomSheet(site: Site) {
+    this.bottomSheet.open(BottomSheetComponent, { data: site });
   }
 }
