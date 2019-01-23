@@ -5,9 +5,13 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 
+// Angular Google Maps
+import { AgmCoreModule } from '@agm/core';
+
+// Angular Material module
 import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 
 @NgModule({
   declarations: [AppComponent, BottomSheetComponent],
@@ -15,7 +19,8 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
     BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    AgmCoreModule.forRoot({ apiKey: environment.GOOGLE_MAPS_API_KEY })
   ],
   entryComponents: [BottomSheetComponent],
   providers: [],

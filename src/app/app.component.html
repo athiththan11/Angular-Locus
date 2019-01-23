@@ -1,4 +1,9 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="h-100">
-  <h1 class="text-center mt-0 pt-5">Welcome to {{ title }}!</h1>
+<div class="h-100 container-fluid">
+  <div class="h-100 row">
+    <div class="col p-0">
+      <agm-map class="h-100" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+    </div>
+  </div>
 </div>
