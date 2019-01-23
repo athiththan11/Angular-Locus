@@ -9,6 +9,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Angular Google Maps
 import { AgmCoreModule } from '@agm/core';
 
+// Angular Firebase Modules
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 // Angular Material module
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
@@ -20,10 +25,12 @@ import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     AngularMaterialModule,
-    AgmCoreModule.forRoot({ apiKey: environment.GOOGLE_MAPS_API_KEY })
+    AgmCoreModule.forRoot({ apiKey: environment.GOOGLE_MAPS_API_KEY }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   entryComponents: [BottomSheetComponent],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
