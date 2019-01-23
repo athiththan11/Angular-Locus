@@ -25,7 +25,7 @@ import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     AngularMaterialModule,
-    AgmCoreModule.forRoot({ apiKey: environment.GOOGLE_MAPS_API_KEY }),
+    AgmCoreModule.forRoot({ apiKey: environment.googleMapsApiKey }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule
   ],
