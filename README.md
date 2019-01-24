@@ -1,27 +1,141 @@
-# AngularLocus
+# Angular Locus
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2.
+a site locator application built using angular 7 (2+) and firebase.
 
-## Development server
+## step by step guide
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Angular CLI
 
-## Code scaffolding
+install angular CLI tools
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```shell
+npm install -g @angular/cli
+```
 
-## Build
+### Create new Angular application
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+create a new angular application named `angular-locus`
 
-## Running unit tests
+```shell
+ng new angular-locus
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### PWA
 
-## Running end-to-end tests
+add PWA (Progressive Web Application) support
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```shell
+ng add @angular/pwa --project=angular-locus
+```
 
-## Further help
+This will add necessary configurations to your angular application to enable PWA functionalities and features
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### manifest.json
+
+add/replace necessary configurations on generated manifest.json
+
+### Themes
+
+#### Angular Material
+
+add Angular Material module
+
+```shell
+ng add @angular/material
+```
+
+#### Bootstrap
+
+add Bootstrap, Popper.JS and Jquery
+
+```shell
+npm install bootstrap popper.js jquery --save
+```
+
+### Angular Google Maps
+
+install Angular Google Maps
+
+```shell
+npm install @agm/core --save
+```
+
+refer [Angular Google Maps](https://angular-maps.com/guides/getting-started/)
+
+#### Google Maps API
+
+get your Google Maps API from developer console and replace it in both environment and environment.prod scripts
+
+```ts
+export const environment = {
+  production: false,
+  googleMapsApiKey: 'YOUR_API_KEY'
+};
+```
+
+### Firebase
+
+install Firebase CLI tools
+
+```shell
+npm install -g firebase-tools
+```
+
+#### Init Firebase
+
+login to your firebase account
+
+```shell
+firebase login
+```
+
+and enter your credentials. and after that initialize firebase configuration inside your project
+
+```shell
+firebase init
+```
+
+#### Firestore
+
+install firebase dependencies for angular
+
+```shell
+npm install --save @angular/fire firebase
+```
+
+##### Environment Variables
+
+create a project in firebase and replace the api keys in both environment and environment.prod scripts
+
+```ts
+export const environment = {
+  production: false,
+  googleMapsApiKey: 'YOUR_API_KEY',
+  firebaseConfig: {
+    apiKey: 'YOUR_API_KEY',
+    authDomain: 'YOUR_AUTH_DOMAIN',
+    databaseURL: 'YOUR_DATABASE_URL',
+    projectId: 'YOUR_PROJECT_ID',
+    storageBucket: 'YOUR_STORAGE_BUCKET',
+    messagingSenderId: 'YOUR_MESSAGING_SENDER_ID'
+  }
+};
+```
+
+## run
+
+### ng serve
+
+use the following command to serve your angular application locally
+
+```shell
+ng serve
+```
+
+### ng build
+
+use the following command to build your angular application for production ready environment
+
+```shell
+ng build
+```
