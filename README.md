@@ -139,3 +139,11 @@ use the following command to build your angular application for production ready
 ```shell
 ng build
 ```
+
+## deploy
+
+deploy to firebase hosting service using the following command (Use this command after initializing all necessary firebase configurations in your repo)
+
+```shell
+firebase deploy
+```
