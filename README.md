@@ -2,6 +2,8 @@
 
 a site locator application built using angular 7 (2+) and firebase.
 
+[Live Demo](https://angular-locus.firebaseapp.com)
+
 ## step by step guide
 
 ### Angular CLI
