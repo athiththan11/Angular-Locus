@@ -1,22 +1,22 @@
 # Angular Locus
 
-a site locator application built using angular 7 (2+) and firebase.
+A site locator application built using angular 7 (2+) and firebase.
 
 [Live Demo](https://angular-locus.firebaseapp.com)
 
-## step by step guide
+## Step By Step Guide
 
 ### Angular CLI
 
-install angular CLI tools
+Install Angular CLI tools
 
 ```shell
 npm install -g @angular/cli
 ```
 
-### Create new Angular application
+### Create Angular application
 
-create a new angular application named `angular-locus`
+Create a new Angular application named `angular-locus`
 
 ```shell
 ng new angular-locus
@@ -24,7 +24,7 @@ ng new angular-locus
 
 ### PWA
 
-add PWA (Progressive Web Application) support
+Add PWA (Progressive Web Application) support
 
 ```shell
 ng add @angular/pwa --project=angular-locus
@@ -34,13 +34,13 @@ This will add necessary configurations to your angular application to enable PWA
 
 #### manifest.json
 
-add/replace necessary configurations on generated manifest.json
+Add/Replace necessary configurations on generated manifest.json
 
 ### Themes
 
 #### Angular Material
 
-add Angular Material module
+Add Angular Material module
 
 ```shell
 ng add @angular/material
@@ -48,7 +48,7 @@ ng add @angular/material
 
 #### Bootstrap
 
-add Bootstrap, Popper.JS and Jquery
+Add Bootstrap, Popper.JS and Jquery
 
 ```shell
 npm install bootstrap popper.js jquery --save
@@ -56,17 +56,17 @@ npm install bootstrap popper.js jquery --save
 
 ### Angular Google Maps
 
-install Angular Google Maps
+Install Angular Google Maps
 
 ```shell
 npm install @agm/core --save
 ```
 
-refer [Angular Google Maps](https://angular-maps.com/guides/getting-started/)
+Refer [Angular Google Maps](https://angular-maps.com/guides/getting-started/)
 
 #### Google Maps API
 
-get your Google Maps API from developer console and replace it in both environment and environment.prod scripts
+Get your `Google Maps API` from developer console and replace it in both `environment` and `environment.prod` scripts
 
 ```ts
 export const environment = {
@@ -77,7 +77,7 @@ export const environment = {
 
 ### Firebase
 
-install Firebase CLI tools
+Install Firebase CLI tools
 
 ```shell
 npm install -g firebase-tools
@@ -85,13 +85,13 @@ npm install -g firebase-tools
 
 #### Init Firebase
 
-login to your firebase account
+Login to your Firebase account
 
 ```shell
 firebase login
 ```
 
-and enter your credentials. and after that initialize firebase configuration inside your project
+And enter your credentials. and after that initialize firebase configuration inside your project
 
 ```shell
 firebase init
@@ -99,7 +99,7 @@ firebase init
 
 #### Firestore
 
-install firebase dependencies for angular
+Install firebase dependencies for angular
 
 ```shell
 npm install --save @angular/fire firebase
@@ -107,7 +107,7 @@ npm install --save @angular/fire firebase
 
 ##### Environment Variables
 
-create a project in firebase and replace the api keys in both environment and environment.prod scripts
+Create a project in Firebase and replace the api keys in both `environment` and `environment.prod` scripts
 
 ```ts
 export const environment = {
@@ -124,11 +124,11 @@ export const environment = {
 };
 ```
 
-## run
+## Run
 
 ### ng serve
 
-use the following command to serve your angular application locally
+Use the following command to serve your angular application locally
 
 ```shell
 ng serve
@@ -136,15 +136,15 @@ ng serve
 
 ### ng build
 
-use the following command to build your angular application for production ready environment
+Use the following command to build your angular application for production ready environment
 
 ```shell
 ng build
 ```
 
-## deploy
+## Deploy
 
-deploy to firebase hosting service using the following command (Use this command after initializing all necessary firebase configurations in your repo)
+Deploy to Firebase hosting service using the following command (Use this command after initializing all necessary firebase configurations in your repo)
 
 ```shell
 firebase deploy
